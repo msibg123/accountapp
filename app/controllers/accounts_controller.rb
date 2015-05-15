@@ -5,7 +5,7 @@ class AccountsController < ApplicationController
   # GET /accounts
   # GET /accounts.json
   def index
-    @accounts = current_user.accounts
+    @accounts =Account.where(user: current_user).last(5)
   end
     def dashboard
     @data=Account.dashboard(current_user) 
