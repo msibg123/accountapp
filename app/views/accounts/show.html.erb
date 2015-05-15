@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>費用:</strong>
+  <%= @account.費用 %>
+</p>
+
+<p>
+  <strong>種類:</strong>
+  <%= @account.種類 %>
+</p>
+
+<%= link_to 'Edit', edit_account_path(@account) %> |
+<%= link_to 'Back', accounts_path %>

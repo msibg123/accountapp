@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Accountapp</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<% unless user_signed_in? %>
+<%= link_to "Login", new_user_session_path %>
+<% end %>
+<% if user_signed_in? %>
+<%=current_user.username%>你好
+<%= link_to "home", root_path %>
+<%= link_to "新增費用", new_account_path %>
+<%= link_to "dashboard", dashboard_path %>
+<%= link_to "登出", destroy_user_session_path,method:'delete' %>
+<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>
